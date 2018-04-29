@@ -46,11 +46,6 @@ export class HeroService {
   /** PUT: update the hero on the server */
   updateHero(hero: Hero): Observable<any> {
     const url = `${this.heroesUrl}/${hero.id}`;
-
-    // let params = JSON.stringify({hero: hero})
-
-    console.log('hero' + hero.name);
-
     return this.http.put(url, hero, httpOptions)
       .pipe(
         tap(_ => this.log(`updated hero id=${hero.id}`)),
@@ -71,7 +66,6 @@ export class HeroService {
   deleteHero(hero: Hero | number): Observable<Hero> {
     const id = typeof hero === 'number' ? hero : hero.id;
     const url = `${this.heroesUrl}/${id}`;
-
     return this.http.delete<Hero>(url, httpOptions).pipe(
       tap(_ => this.log(`deleted hero id=${id}`)),
       catchError(this.handleError<Hero>('deleteHero'))
@@ -98,13 +92,11 @@ export class HeroService {
    */
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 
       // TODO: better job of transforming error for user consumption
       this.log(`${operation} failed: ${error.message}`);
-
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
@@ -114,6 +106,4 @@ export class HeroService {
   private log(message: string) {
     this.messageService.add('HeroService: ' + message);
   }
-
-
 }

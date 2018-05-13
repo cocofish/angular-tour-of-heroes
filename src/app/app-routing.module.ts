@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {HeroesComponent} from './views/hero/heroes/heroes.component';
 import {DashboardComponent} from 'app/views/dashboard/dashboard.component';
 import {HeroDetailComponent} from './views/hero/hero-detail/hero-detail.component';
+import {Code404Component} from './views/code404/code404.component';
 
 // 路由入口
 const routes: Routes = [
@@ -10,7 +11,9 @@ const routes: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'heroes', component: HeroesComponent},
-  {path: 'detail/:id', component: HeroDetailComponent}
+  {path: 'detail/:id', component: HeroDetailComponent},
+  // 通配
+  {path: '**', component: Code404Component}
 ];
 
 @NgModule({
@@ -23,3 +26,5 @@ const routes: Routes = [
 
 export class AppRoutingModule {
 }
+
+

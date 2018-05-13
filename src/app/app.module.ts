@@ -13,6 +13,7 @@ import {MessageService} from './service/message.service';
 
 import {AppRoutingModule} from './app-routing.module';
 import {HeroSearchComponent} from './views/hero/hero-search/hero-search.component';
+import { Code404Component } from './views/code404/code404.component';
 
 @NgModule({
   // 声明
@@ -22,7 +23,8 @@ import {HeroSearchComponent} from './views/hero/hero-search/hero-search.componen
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    Code404Component
   ],
   // 外部模块
   imports: [

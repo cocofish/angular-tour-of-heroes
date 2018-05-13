@@ -13,6 +13,7 @@ export class HeroDetailComponent implements OnInit {
   @Input() hero: Hero;
 
   constructor(
+    // 路由对象
     private route: ActivatedRoute,
     private heroService: HeroService,
     private location: Location
